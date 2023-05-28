@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("background3.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px ;
+        }
+        #paris, #rome {
+            position: relative;
+            left: 50px;
+            color: #bfff98;
+        }
+        #inca, #annapurna {
+            position: relative;
+            left: 50px;
+            color: #bfff98;
+        }
+        #bali, #santorini {
+        position: relative;
+        left: 50px;
+        color: #bfff98;
+        }
+        .row1{
+        display:flex;  
+        margin: 15 px;
+        }
+        .row2{
+        display:flex;  
+        margin: 15 px;
+        }
+        #label1{
+            position: relative;
+            right: -38px;
+            color: #bfff98;
+        }
+        #label11{
+            position: relative;
+            right: -60px;
+            color: #bfff98;
+        }
+        #label22{
+            position: relative;
+            right: -50px;
+            color: #bfff98;
+        }
+        #label23{
+            position: relative;
+            right: 15px;
+            color: #bfff98;
+        }
+        #label2{
+            position: relative;
+            right: -18px;
+            color: #bfff98;
+        }
+        #santorini_pic{
+            margin: 20px;
+        }
+        #paris_pic{
+            margin: 20px;
+        }
+        #annapurna_pic{
+            margin: 20px;
+        }
+        #inca_pic{
+            margin: 20px;
+        }
+        #bali_pic{
+            margin: 20px;
+        }
+        #rome_pic{
+            margin: 20px;
+        }
+#error h1{
+    position: center;
+    color:rgb(157, 9, 9);
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Search Results</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form method="POST" action='/search' class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name="Search" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="row1">  
+        <div id="paris_pic">
+             <%if(appear[0]==="true"){%>
+           <%-include("visiting/wanttogotoParis")%>
+             <%}%>    
+        </div>
+        <div id="rome_pic">
+                <%if(appear[1]==="true"){%>
+              <%-include("visiting/wanttogotoRome")%>
+                <%}%>    
+        </div>
+        <div id="inca_pic">
+                <%if(appear[2]==="true"){%>
+              <%-include("visiting/wanttogotoInca")%>
+                <%}%>    
+        </div>
+        </div>
+        <div class="row2">
+        <div id="santorini_pic">
+                <%if(appear[3]==="true"){%>
+              <%-include("visiting/wanttogotoSantorini")%>
+                <%}%>    
+        </div>
+        <div id="annapurna_pic">
+                <%if(appear[4]==="true"){%>
+              <%-include("visiting/wanttogotoAnnapurna")%>
+                <%}%>    
+        </div>
+        <div id="bali_pic">
+                <%if(appear[5]==="true"){%>
+              <%-include("visiting/wanttogotoBali")%>
+                <%}%>    
+        </div>
+    </div>
+    <div id="error">
+        <%if(appear[0]==="false"&&appear[1]==="false"&&appear[2]==="false"&&appear[3]==="false"&&appear[4]==="false"&&appear[5]==="false"){%>
+          <h1>Destination not Found</h1>
+        <%}%>    
+   </div>   
+</body>
+</html>
